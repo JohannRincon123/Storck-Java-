@@ -3,7 +3,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class Login {
+public class login {
 
     private static final String RUTA_ARCHIVO = "usuarios.txt";
     private static Map<String, String> usuariosRegistrados = cargarUsuarios();
