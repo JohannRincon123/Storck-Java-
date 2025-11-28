@@ -8,8 +8,6 @@ public class Product {
     public static List<Product> products = new ArrayList<>();
     public static Scanner scanner = new Scanner(System.in);
 
-    //Definición de atributos
-
     private int sku;
     private String name;
     private double cost;
@@ -21,8 +19,6 @@ public class Product {
 
     public Product() {}
 
-
-    // Constructor (La fecha se asigna automáticamente a 30 días)
     public Product(int sku, String name, double cost, double price, int stock,
                    double costDozen, int sold) {
 
@@ -36,7 +32,22 @@ public class Product {
         this.expirationDate = LocalDate.now().plusDays(30);
     }
 
-    //Agregar producto
+    // === AGREGADO: SETTER PARA MODIFICAR STOCK ===
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
+
+    // === GETTERS ===
+    public int getSku() { return sku; }
+    public String getName() { return name; }
+    public double getCost() { return cost; }
+    public double getPrice() { return price; }
+    public int getStock() { return stock; }
+    public double getCostDozen() { return costDozen; }
+    public int getSold() { return sold; }
+    public LocalDate getExpirationDate() { return expirationDate; }
+
+    // === AGREGAR PRODUCTO ===
     public static void addProduct(Scanner sc) {
 
         System.out.print("Ingresar código de identificación (SKU): ");
@@ -63,7 +74,7 @@ public class Product {
         Product p = new Product(sku, name, cost, price, stock, costDozen, sold);
 
         products.add(p);
-        System.out.println("Producto agregado correctamente. Se dan 30 días para considerarlo vencido: " + p.expirationDate);
+        System.out.println("Producto agregado correctamente. Se dan 30 días para considerarlo vencido: " + p.getExpirationDate());
     }
 
     @Override
@@ -78,7 +89,7 @@ public class Product {
                 ", Expira: " + expirationDate;
     }
 
-    //Se imprime el listado de productos
+    // === MOSTRAR PRODUCTOS ===
     public static void showProducts() {
         System.out.println("\n=== LISTA DE PRODUCTOS ===");
 
@@ -92,7 +103,7 @@ public class Product {
         }
     }
 
-    //Menú para la gestión de inventario
+    // === MENÚ DE INVENTARIO ===
     public void menuGestion(Scanner sc) {
         while (true) {
             System.out.println("\n=== GESTIÓN DE INVENTARIO ===");
@@ -117,14 +128,4 @@ public class Product {
             }
         }
     }
-
-    // GETTERS
-    public int getSku() { return sku; }
-    public String getName() { return name; }
-    public double getCost() { return cost; }
-    public double getPrice() { return price; }
-    public int getStock() { return stock; }
-    public double getCostDozen() { return costDozen; }
-    public int getSold() { return sold; }
-    public LocalDate getExpirationDate() { return expirationDate; }
 }

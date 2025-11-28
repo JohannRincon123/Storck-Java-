@@ -18,9 +18,9 @@ public class Main {
 
             System.out.println("\n===== MENÚ =====");
 
-            // =============================
+         
             //   MENÚ SIN SESIÓN ACTIVA
-            // =============================
+           
             if (!sistema.haySesionActiva()) {
                 System.out.println("1. Registrar usuario");
                 System.out.println("2. Iniciar sesión");
@@ -45,12 +45,12 @@ public class Main {
                 }
 
                 System.out.println(resultado);
-                continue; // vuelve al inicio del while, NO muestra el menú principal aún
+                continue;
             }
 
-            // =============================
+           
             //   MENÚ CON SESIÓN ACTIVA
-            // =============================
+         
             System.out.println("\n===== MENÚ PRINCIPAL =====");
             System.out.println("1. Gestión de inventario");
             System.out.println("2. Consultas de bodega");
@@ -59,7 +59,8 @@ public class Main {
             System.out.println("5. Reportes estadísticos");
             System.out.println("6. Cambiar contraseña");
             System.out.println("7. Cerrar sesión");
-            System.out.println("8. Salir del sistema");
+            System.out.println("8. gestión de ventas");  
+            System.out.println("9. Salir del programa");  
 
             System.out.print("Seleccione: ");
             String opcion = sc.nextLine();
@@ -94,10 +95,13 @@ public class Main {
                     System.out.println(sistema.cerrarSesion());
                     break;
 
-                case "8":
-                    System.out.println("Saliendo...");
-                    return;
+                case "8": SalesManager.menuVentas();
+                    break;
 
+                case "9": 
+                 System.out.println("Gracias por usar Stock Inventory Manager.");
+                    return;  
+                   
                 default:
                     System.out.println("Opción no válida.");
             }

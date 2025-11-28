@@ -1,3 +1,2 @@
-johann:johann123$�
-johannq:johann123
-javier:12343
+Javier=12
+javi=12
